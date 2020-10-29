@@ -1,6 +1,7 @@
 ﻿using Consul;
 using Microsoft.AspNetCore.Builder;
 using System;
+using System.Net.Http;
 
 namespace ConsulInfrastructure
 {
@@ -13,7 +14,6 @@ namespace ConsulInfrastructure
         {
 
             var consulClient = new ConsulClient(x => x.Address = consulService.ServiceUrl);//Request to register for Consul address
-
             var httpCheck = new AgentServiceCheck()
 
             {

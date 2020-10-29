@@ -62,7 +62,6 @@ namespace ServiceApi
                 Name = Configuration["Service:Name"],
 
             };
-
             app.RegisterConsul(lifetime, healthService, consulService);
         }
     }
