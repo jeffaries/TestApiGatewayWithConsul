@@ -47,15 +47,11 @@ namespace ConsulInfrastructure
                 Tags = new[] { $"urlprefix-/{healthService.Name}" }//Add a tag tag in urlprefix-/servicename format for Fabio to recognize
 
             };
-
             consulClient.Agent.ServiceRegister(registration).Wait();//The service is registered at startup. The internal implementation is actually registered using the Consul API (initiated by HttpClient).
 
             lifetime.ApplicationStopping.Register(() =>
-
             {
-
                 consulClient.Agent.ServiceDeregister(registration.ID).Wait();//Unregister when the service is stopped
-
             });
 
             return app;

@@ -21,7 +21,7 @@ namespace ServiceApi.Controllers
         [HttpGet]
         public ActionResult Get()
         {
-            return Ok("Hello");
+            return Ok("Hello from " + configuration.GetValue<String>("InstanceName", "[Unknown]"));
         }
     }
 }
