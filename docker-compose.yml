@@ -1,14 +1,47 @@
 version: '3.4'
 
 services:
-  serviceapi1:
+  serviceapi:
     image: ${DOCKER_REGISTRY-}serviceapi
     build:
       context: .
       dockerfile: ServiceApi/Dockerfile
-
+    ports:
+      - "82:80"
+    environment:
+     - InstanceName=apiInstance82
+     - Service__IP=192.168.3.15
+     - Service__Port=82
   serviceapi2:
     image: ${DOCKER_REGISTRY-}serviceapi
     build:
       context: .
       dockerfile: ServiceApi/Dockerfile
+    ports:
+      - "83:80"
+    environment:
+     - InstanceName=apiInstance83
+     - Service__IP=192.168.3.15
+     - Service__Port=83
+  serviceapi3:
+    image: ${DOCKER_REGISTRY-}serviceapi
+    build:
+      context: .
+      dockerfile: ServiceApi/Dockerfile
+    ports:
+      - "84:80"
+    environment:
+     - InstanceName=apiInstance84
+     - Service__IP=192.168.3.15
+     - Service__Port=84
+  serviceapi4:
+    image: ${DOCKER_REGISTRY-}serviceapi
+    build:
+      context: .
+      dockerfile: ServiceApi/Dockerfile
+    ports:
+      - "85:80"
+    environment:
+     - InstanceName=apiInstance85
+     - Service__IP=192.168.3.15
+     - Service__Port=85

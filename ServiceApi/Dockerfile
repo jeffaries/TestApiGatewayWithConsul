@@ -7,6 +7,7 @@ EXPOSE 80
 FROM mcr.microsoft.com/dotnet/core/sdk:3.1-buster AS build
 WORKDIR /src
 COPY ["ServiceApi/ServiceApi.csproj", "ServiceApi/"]
+COPY ["ConsulInfrastructure/ConsulInfrastructure.csproj", "ConsulInfrastructure/"]
 RUN dotnet restore "ServiceApi/ServiceApi.csproj"
 COPY . .
 WORKDIR "/src/ServiceApi"

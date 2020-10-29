@@ -3,9 +3,9 @@
   <PropertyGroup Label="Globals">
     <ProjectVersion>2.1</ProjectVersion>
     <DockerTargetOS>Linux</DockerTargetOS>
-    <ProjectGuid>d371fd2b-1058-44ad-a4a0-b4d574f481e4</ProjectGuid>
+    <ProjectGuid>059c2d1b-343f-4d39-8e9a-77c5764d8e57</ProjectGuid>
     <DockerLaunchAction>LaunchBrowser</DockerLaunchAction>
-    <DockerServiceUrl>{Scheme}://localhost:{ServicePort}/weatherforecast</DockerServiceUrl>
+    <DockerServiceUrl>{Scheme}://localhost:{ServicePort}/{Scheme}://{ServiceHost}:{ServicePort}/me</DockerServiceUrl>
     <DockerServiceName>serviceapi</DockerServiceName>
   </PropertyGroup>
   <ItemGroup>
