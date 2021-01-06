@@ -3,6 +3,14 @@ version: '3.4'
 services:
   serviceapi:
     environment:
-      - ASPNETCORE_ENVIRONMENT=Development
-    ports:
-      - "80"
+     - InstanceName=apiInstance82
+     - Service__IP=192.168.3.16
+     - consul__serviceUrl=http://192.168.3.9:8500
+     - ASPNETCORE_ENVIRONMENT=Development
+
+  apigateway:
+    environment:
+     - ASPNETCORE_ENVIRONMENT=Development
+     - GlobalConfiguration__ServiceDiscoveryProvider__Host=192.168.3.9
+
+

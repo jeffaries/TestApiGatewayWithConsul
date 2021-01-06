@@ -1,8 +1,23 @@
 version: '3.4'
 
 services:
+  #consul:
+  #  image: consul
+  #  container_name: consul
+  #  ports:
+  #    - "8500:8500"
+  apigateway:
+    image: ${DOCKER_REGISTRY-}apigateway
+    build:
+      context: .
+      dockerfile: APIGateway/Dockerfile
+    ports:
+      - "81:80"
+    environment:
+     - GlobalConfiguration__ServiceDiscoveryProvider__Host=consul
+     - GlobalConfiguration__ServiceDiscoveryProvider__Port=8500
   serviceapi:
-    image: ${DOCKER_REGISTRY-}serviceapi
+    image: jeffaries/serviceapi
     build:
       context: .
       dockerfile: ServiceApi/Dockerfile
@@ -10,38 +25,9 @@ services:
       - "82:80"
     environment:
      - InstanceName=apiInstance82
-     - Service__IP=192.168.3.15
+     - Service__IP=serviceapi
      - Service__Port=82
-  serviceapi2:
-    image: ${DOCKER_REGISTRY-}serviceapi
-    build:
-      context: .
-      dockerfile: ServiceApi/Dockerfile
-    ports:
-      - "83:80"
-    environment:
-     - InstanceName=apiInstance83
-     - Service__IP=192.168.3.15
-     - Service__Port=83
-  serviceapi3:
-    image: ${DOCKER_REGISTRY-}serviceapi
-    build:
-      context: .
-      dockerfile: ServiceApi/Dockerfile
-    ports:
-      - "84:80"
-    environment:
-     - InstanceName=apiInstance84
-     - Service__IP=192.168.3.15
-     - Service__Port=84
-  serviceapi4:
-    image: ${DOCKER_REGISTRY-}serviceapi
-    build:
-      context: .
-      dockerfile: ServiceApi/Dockerfile
-    ports:
-      - "85:80"
-    environment:
-     - InstanceName=apiInstance85
-     - Service__IP=192.168.3.15
-     - Service__Port=85
+     - consul__serviceUrl=http://consul:8500
+ 
+
+

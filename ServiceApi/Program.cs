@@ -21,8 +21,8 @@ namespace ServiceApi
             Host.CreateDefaultBuilder(args)
                 .ConfigureWebHostDefaults(webBuilder =>
                 {
+                    webBuilder.UseKestrel();
                     webBuilder.UseStartup<Startup>();
-                    webBuilder.UseUrls("http://+:80");
                 });
     }
 }

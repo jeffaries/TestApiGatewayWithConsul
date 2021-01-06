@@ -1,0 +1,23 @@
+{
+  "GlobalConfiguration": {
+    "ServiceDiscoveryProvider": {
+      "Scheme": "http",
+      "Host": "192.168.3.9",
+      "Port": 8500,
+      "Type": "PollConsul",
+      "PollingInterval": 100
+    }
+  },
+  "Routes": [
+    {
+      "DownstreamPathTemplate": "/me",
+      "DownstreamScheme": "http",
+      "ServiceName": "NetCoreConsul",
+      "UpstreamPathTemplate": "/me",
+      "UpstreamHttpMethod": [ "Get" ],
+      "LoadBalancerOptions": {
+        "Type": "LeastConnection"
+      }
+    }
+  ]
+}

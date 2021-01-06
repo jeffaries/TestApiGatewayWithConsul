@@ -27,8 +27,8 @@ namespace ConsulInfrastructure
             var registration = new AgentServiceRegistration()
             {
                 Checks = new[] { httpCheck },
-                ID = healthService.Name + "_" + healthService.Port,
-                Name = healthService.Name,
+                ID = healthService.InstanceName,
+                Name = healthService.ServiceName,
                 Address = healthService.IP,
                 Port = healthService.Port,
                 //Tags = new[] { $"urlprefix-/{healthService.Name}" }//Add a tag tag in urlprefix-/servicename format for Fabio to recognize

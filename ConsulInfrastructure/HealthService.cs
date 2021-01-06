@@ -6,10 +6,11 @@ namespace ConsulInfrastructure
 {
     public class HealthService
     {
+        public string InstanceName { get; set; }
         /// <summary>
         /// name
         /// </summary>
-        public string Name { get; set; }
+        public string ServiceName { get; set; }
         /// <summary>
         /// IP
         /// </summary>

@@ -5,8 +5,8 @@
     <DockerTargetOS>Linux</DockerTargetOS>
     <ProjectGuid>059c2d1b-343f-4d39-8e9a-77c5764d8e57</ProjectGuid>
     <DockerLaunchAction>LaunchBrowser</DockerLaunchAction>
-    <DockerServiceUrl>{Scheme}://localhost:{ServicePort}/{Scheme}://{ServiceHost}:{ServicePort}/me</DockerServiceUrl>
-    <DockerServiceName>serviceapi</DockerServiceName>
+    <DockerServiceUrl>{Scheme}://{ServiceHost}:{ServicePort}/me</DockerServiceUrl>
+    <DockerServiceName>apigateway</DockerServiceName>
   </PropertyGroup>
   <ItemGroup>
     <None Include="docker-compose.override.yml">

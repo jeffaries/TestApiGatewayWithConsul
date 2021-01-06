@@ -3,18 +3,17 @@
   "profiles": {
     "ServiceApi": {
       "commandName": "Project",
-      "launchBrowser": true,
-      "launchUrl": "me",
+      "launchUrl": "/me",
       "environmentVariables": {
         "ASPNETCORE_ENVIRONMENT": "Development"
       },
-      "applicationUrl": "http://192.168.3.15:5000"
+      "applicationUrl": "http://192.168.3.16:5000"
     },
     "Docker": {
-      "commandName": "Docker",
+      "commandName": "Project",
       "launchBrowser": true,
       "launchUrl": "{Scheme}://{ServiceHost}:{ServicePort}/me",
-      "publishAllPorts": true
+      "publishAllPorts": false
     }
   }
 }

@@ -50,17 +50,13 @@ namespace ServiceApi
             {
                 consulService.ServiceUrl = url;
             }
-
+            
             HealthService healthService = new HealthService()
-
             {
-
+                InstanceName = Configuration["InstanceName"] ?? Configuration["Service:IP"] + ':' + Configuration["Service:Port"],
                 IP = Configuration["Service:IP"],
-
                 Port = Convert.ToInt32(Configuration["Service:Port"]),
-
-                Name = Configuration["Service:Name"],
-
+                ServiceName = Configuration["Service:Name"],
             };
             app.RegisterConsul(lifetime, healthService, consulService);
         }
